@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript">
+		/*
+		//1.通过构造函数的方式创建对象
+		function Person(pName,age){
+			this.pName = pName;
+			this.age = age;
+			this.run = function(){
+				return this.pName + this.age;
+			}
+		}
+
+		var p1 = new Person("zmt",90);
+		var p2 = new Person("zmt",90);
+		document.write(p1.run === p2.run);
+
+		function Person(){
+			 this.pName = "tom";
+		} //构造函数
+		Person.prototype.pName = "zmt";
+		Person.prototype.pAge = 30;
+		Person.prototype.run = function(){
+			document.write("从原型共享出来的方法");
+		}
+		var p1 = new Person();
+		// p1.run();
+		document.write(p1.__proto__.constructor);
+		var p2 = new Person();
+		document.write(p1.run === p2.run+"<br>");
+		document.write("<br>");
+		// 判断某个对象是否指向某个构造函数的原型对象
+		document.write(Person.prototype.isPrototypeOf(p2));
+		// 原型的执行流程
+		document.write(p1.pName);
+		// delete p1.pName;
+		// document.write(p1.pName);
+		// 查看属性是在构造函数的实例中，还是在构造函数的原型中
+		document.write(p1.__proto__.hasOwnProperty("pName"));		
+		*/ 
+		// 构造函数
+		function Person(){}
+		// 创建构造函数的原型对象
+		Person.prototype = {
+			constructor:Person,
+			pName:"zmt",
+			pAge: 20,
+			run:function(){
+				document.write(this.pName+"<br>");
+			}
+		}
+		var p1 = new Person();
+		p1.run();
+
+		var p2 = new Person();
+		document.write(p2 instanceof Person); 
+		document.write("<br>");
+		document.write(p2 instanceof Object); 
+		document.write("<br>");
+		document.write(p2.constructor);
+		document.write(p2.constructor == Person);
+		document.write("<br>");
+		document.write(p2.constructor == Object);
+		//字面量方式,返回 false,否则,true //字面量方式,返回 true,否则,false
+		//系统自带数据类型扩展	
+
+		String.prototype.addstring =function () { 
+			return 	this + ',被添加了!';
+			}
+		document.write("Hello".addstring());
+
+		Array.prototype.bubbleSort = function(){
+				document.write("在这里排序");
+		} 
+
+		Array.prototype.shellSort = function(){
+			document.write("数组现在调用的是希尔排序");
+		}
+		var arr = [1,23,4];
+		1.bubbleSort();
+		arr.shellSort();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript">
+		// 创建一个正则表达式对象
+		// var reg =  new RegExp("Ab","ig");
+
+		// 判断字符串里是否有匹配正则表达式的语句，如果有就返回true，否则就返回false
+		// var success = re.test(str);
+		// if (success) {
+		// 	console.log(success);
+		// }else{
+		// 	console.log(success);
+		// }
+		// exec 
+		var re = /aoyolo/ig;
+	var str = "aoyolohtml5aoyolo";
+		var result;
+		var arr = [];
+		//使用exec函数时，一定要通过循环的方式将exec找到的元素逐一遍历出来
+		while ((result=re.exec(str))!= null) {
+			arr.push(result);
+			document.write(re.lastIndex);
+		}
+		console.log(arr.length);
+		// match找到一个或多个正则表达式的匹配。 
+		var str = "html5csshtml5csscss"
+		var re = /css/ig;
+		//match返回一个包含匹配结果的数组
+		var rs = str.match(re);
+		// instanceof 判断某个对象是否属于某一种类型
+		document.write(rs instanceof Array);
+		//替换单个字符串
+		var newStr = str.replace("css", "game");
+		document.write(newStr);
+		// 替换多个相同的字符串，需要用到正则表达式
+		var nStr = str.replace(re, "bb")
+		document.write(nStr+"<br>");
+		// split将字符串分割成一个数组
+		// var string = "a,b,c,d,e,f,g"
+		// var newArr = string.split("c");
+		// document.write(newArr instanceof Array);
+		// document.write(newArr[1]);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

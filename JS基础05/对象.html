@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript">
+		//1.通过字面量的方式创建对象
+		/*
+				var xiaoming = {
+			// 键值对 key:value
+			name:"小明", 
+			age: 20,
+			playLOL:function(){
+				console.log('玩游戏')
+			}
+		}
+		//通过new Object()创建对象
+		var daming = new Object();
+		daming.name = "大明";
+		daming.age = 20;
+		daming.run = function(){
+			console.log("大明滚");
+		}
+
+		var laoming = new Object();
+		laoming.name = "老明";
+		laoming.age = 40;
+		laoming.marry = function(){
+			console.log("老明");
+		}
+		var taizuM = new Object();
+		taizuM.name = "太祖明";
+		taizuM.age = 40;
+		taizuM.marry = function(){
+			console.log("老明");
+		}
+		// 工厂方法
+		function createObject(n,a){
+			var obj = new Option();
+			obj.name = n;
+			obj.age = a;
+			obj.run = function(){
+				document.write("奔跑吧"+n+"");
+			}
+			return obj;
+		}
+		// 创建小明
+		var xm = createObject("小明",20);
+		xm.run();
+		var dm = createObject("大明",22);
+		dm.run();
+		var lm = createObject("老明",45);
+		lm.run();
+
+		// BMW工厂
+		function makeBMW(type){
+			var car = new Object();
+			car.type = type;
+			car.height = 1.7;
+			car.length = 3;
+			car.run = function(){
+				document.write(car.type+"可以在公路上驰行");
+			}
+			return car;
+		}
+
+		var bmw365 = makeBMW(365);
+		bmw365.run();
+
+		var bmw110 = makeBMW(110);
+		bmw110.run();
+		document.write("<br>");
+		document.write(typeof bmw365);
+		document.write(typeof bmw110);
+		*/
+		//通过构造函数的方式来创建对象
+		/*
+			1.构造函数的函数名首字母最好大写。这样可以用区分构造函数和普通函数
+					function Car(t,p){
+			this.type = t;
+			this.price = p;
+			this.run = function(){
+				document.write(this.type+"价格为"+this.price);
+			}
+		} 
+		// 通过构造函数创建的对象可以和娶她对象进行类型上的区别
+		var bmw = new Car("bmw","25万");
+		bmw.run();
+		document.write(bmw instanceof Car);
+		var qq = new Car("qq","5万");
+		qq.run();
+
+		// this关键字
+		// 1.作为全局全局对象，代表的是window 对象
+		window.document.write("代表的是window对象"+this+"<br>");
+		window.alert(this)
+		function thisEle(){
+			document.write("代表的是"+this+"<br>");
+		}
+		window.thisEle();
+
+		function Car(name){
+			this.name = name;
+			this.run = function(){document.write("代表的是"+this+"<br>");
+			}
+		}
+		var car = new Car("bmw");
+		car.run();
+		// this严格模式
+		  function multiply(a, b) {  
+		      'use strict'; // 开启严格模式
+		      console.log(this === undefined); // => true
+		      return a * b;
+    }
+    // 严格模式下的函数调用 multiply() 
+    // this 在 multiply() 中为 undefined
+    multiply(2, 5); // => 10 
+
+		*/
+		// 对象属性操作
+		// 1.访问属性
+		function Person(name,age,height){
+			this.name = name; //实例属性
+			this.age = age;
+			this.height = height;
+			this.printInfo=function(){
+				document.write(this.name+this.age+this.height);
+			}
+		}
+		var xm = new Person("小明",20,180);
+		//单独为小明添加唱歌的属性。
+		xm.sing = function(){
+			document.write("小明会唱歌");
+		}
+		// 访问对象属性
+		document.write(xm.name);
+		//对象内部方法访问内部属性
+		xm.printInfo();
+		xm.sing();
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
